@@ -2,7 +2,6 @@ package com.sree.graphql.models;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public record Author (String id, String firstName, String lastName) {
 
@@ -18,11 +17,5 @@ public record Author (String id, String firstName, String lastName) {
                 .filter(author -> author.id().equals(id))
                 .findFirst()
                 .orElse(null);
-    }
-
-    public static List<Author> getByName(String id) {
-        return authors.stream()
-                .filter(author -> author.id.equals(id))
-                .toList();
     }
 }
